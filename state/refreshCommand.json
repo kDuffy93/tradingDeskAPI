@@ -1,0 +1,18 @@
+{
+  "command": {
+    "id": "cmd-1771422812465-0h54916e",
+    "status": "completed",
+    "requestedAt": 1771422812465,
+    "updatedAt": 1771422814089,
+    "requestedBy": "::ffff:127.0.0.1",
+    "agentId": "live-23708",
+    "note": "refresh_started",
+    "error": null,
+    "onlineCount": 241,
+    "lastRunId": "live-1771422814042-23",
+    "source": "api",
+    "startedAt": 1771422814039,
+    "finishedAt": 1771422814089
+  },
+  "updatedAt": 1771422814089
+}
