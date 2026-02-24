@@ -8,6 +8,7 @@ const {
   setFromIncoming,
   STATE_PATH,
 } = require('../state/activeTables');
+const rawFrameQueue = require('../state/rawFrameQueue');
 const {
   snapshot: refreshSnapshot,
   getCurrentCommand,
@@ -114,13 +115,67 @@ router.post('/refresh-command/ack', requireAgentKey, function (req, res) {
 
 router.get('/health', function (req, res) {
   const state = snapshot();
+  const rawStats = rawFrameQueue.snapshotStats();
   res.json({
     ok: true,
     ts: Date.now(),
     tablesOnline: state.urls.length,
     lastSyncTs: state.meta.ts || 0,
     lastError: state.meta.lastError || null,
+    rawFrameQueue: {
+      queueCount: Number(rawStats.queueCount || 0),
+      claimedCount: Number(rawStats.claimedCount || 0),
+      unclaimedCount: Number(rawStats.unclaimedCount || 0),
+      lastPushAt: Number(rawStats.stats?.lastPushAt || 0) || null,
+      lastClaimAt: Number(rawStats.stats?.lastClaimAt || 0) || null,
+      lastAckAt: Number(rawStats.stats?.lastAckAt || 0) || null,
+    },
   });
+});
+
+router.get('/raw-frame/stats', requireAgentKey, function (req, res) {
+  res.json(rawFrameQueue.snapshotStats());
+});
+
+router.post('/raw-frame/push', requireAgentKey, function (req, res) {
+  const payload = req.body && typeof req.body === 'object' ? req.body : {};
+  const items = Array.isArray(payload.items) ? payload.items : [];
+  if (!items.length) {
+    return res.status(400).json({ ok: false, error: 'items_required' });
+  }
+
+  const out = rawFrameQueue.enqueueMany(items, {
+    recentTtlMs: payload.recentTtlMs,
+  });
+
+  return res.status(202).json({
+    ok: true,
+    ts: Date.now(),
+    ...out,
+  });
+});
+
+router.post('/raw-frame/claim', requireAgentKey, function (req, res) {
+  const payload = req.body && typeof req.body === 'object' ? req.body : {};
+  const out = rawFrameQueue.claimMany({
+    limit: payload.limit,
+    consumer: payload.consumer || req.ip || 'be',
+    claimMs: payload.claimMs,
+  });
+  return res.json(out);
+});
+
+router.post('/raw-frame/ack', requireAgentKey, function (req, res) {
+  const payload = req.body && typeof req.body === 'object' ? req.body : {};
+  const ids = Array.isArray(payload.ids) ? payload.ids : [];
+  if (!ids.length) {
+    return res.status(400).json({ ok: false, error: 'ids_required' });
+  }
+  const out = rawFrameQueue.ackMany({
+    ids,
+    consumer: payload.consumer || req.ip || '',
+  });
+  return res.json(out);
 });
 
 module.exports = router;
