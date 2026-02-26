@@ -98,6 +98,7 @@
     "https://gamblingcounting.com/blackjack/spy/pragmatic-blackjack-82",
     "https://gamblingcounting.com/blackjack/spy/pragmatic-blackjack-83",
     "https://gamblingcounting.com/blackjack/spy/pragmatic-blackjack-84",
+    "https://gamblingcounting.com/blackjack/spy/pragmatic-blackjack-85",
     "https://gamblingcounting.com/blackjack/spy/pragmatic-blackjack-86",
     "https://gamblingcounting.com/blackjack/spy/pragmatic-blackjack-87",
     "https://gamblingcounting.com/blackjack/spy/pragmatic-blackjack-88",
@@ -185,6 +186,8 @@
     "https://gamblingcounting.com/blackjack/spy/pragmatic-speed-blackjack-21",
     "https://gamblingcounting.com/blackjack/spy/pragmatic-speed-blackjack-22",
     "https://gamblingcounting.com/blackjack/spy/pragmatic-speed-blackjack-3",
+    "https://gamblingcounting.com/blackjack/spy/pragmatic-speed-blackjack-30",
+    "https://gamblingcounting.com/blackjack/spy/pragmatic-speed-blackjack-31",
     "https://gamblingcounting.com/blackjack/spy/pragmatic-speed-blackjack-38",
     "https://gamblingcounting.com/blackjack/spy/pragmatic-speed-blackjack-39",
     "https://gamblingcounting.com/blackjack/spy/pragmatic-speed-blackjack-40",
@@ -252,12 +255,12 @@
     "https://gamblingcounting.com/blackjack/spy/pragmatic-vip-blackjack-9"
   ],
   "meta": {
-    "ts": 1772065336003,
+    "ts": 1772065444629,
     "finalCount": 326,
-    "lastMs": 6,
+    "lastMs": 2,
     "lastError": null,
     "lastErrorCode": null,
-    "lastRunId": "push-1772065335984-2328",
+    "lastRunId": "push-1772065442505-2373",
     "source": "live:tab_agent_index"
   },
   "refreshing": false
