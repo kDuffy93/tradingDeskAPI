@@ -181,6 +181,8 @@
     "https://gamblingcounting.com/blackjack/spy/pragmatic-speed-blackjack-1",
     "https://gamblingcounting.com/blackjack/spy/pragmatic-speed-blackjack-11",
     "https://gamblingcounting.com/blackjack/spy/pragmatic-speed-blackjack-2",
+    "https://gamblingcounting.com/blackjack/spy/pragmatic-speed-blackjack-20",
+    "https://gamblingcounting.com/blackjack/spy/pragmatic-speed-blackjack-21",
     "https://gamblingcounting.com/blackjack/spy/pragmatic-speed-blackjack-22",
     "https://gamblingcounting.com/blackjack/spy/pragmatic-speed-blackjack-3",
     "https://gamblingcounting.com/blackjack/spy/pragmatic-speed-blackjack-38",
@@ -250,12 +252,12 @@
     "https://gamblingcounting.com/blackjack/spy/pragmatic-vip-blackjack-9"
   ],
   "meta": {
-    "ts": 1772065073832,
+    "ts": 1772065336003,
     "finalCount": 326,
-    "lastMs": 1,
+    "lastMs": 6,
     "lastError": null,
     "lastErrorCode": null,
-    "lastRunId": "push-1772065073488-2157",
+    "lastRunId": "push-1772065335984-2328",
     "source": "live:tab_agent_index"
   },
   "refreshing": false
